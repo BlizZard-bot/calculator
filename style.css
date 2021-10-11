@@ -13,7 +13,8 @@ body {
   height: 100vh;
   place-items: center;
   font-weight: 700;
-  color: rgb(0, 0, 0);
+  /* color: #22252d; */
+  color: #dcddde;
 }
 
 img {
@@ -21,7 +22,7 @@ img {
   display: block;
 }
 .container {
-  background-color: black;
+  background-color: #22252d;
   width: min(80%, 500px);
   display: grid;
   place-items: center;
@@ -34,20 +35,25 @@ header {
   justify-content: space-between;
   padding: 0.1em;
   align-items: center;
-  background-color: red;
+  background-color: #1e2027;
   border-radius: 25px 25px 0 0;
+}
+
+.time{
+  font-size: .95rem;
+  margin-left: 1em;
 }
 
 .icons {
   width: 30%;
   height: 20px;
-  background-color: #fff;
+  border: 1px solid #fff;
 }
 
 .display {
-  padding: 7em;
+  padding: 6.5em;
   width: 100%;
-  background-color: #000;
+  background-color: #22252d;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -59,18 +65,18 @@ header {
   top: 1em;
   width: 30%;
   max-width: 100px;
-  background-color: rgb(39, 39, 39);
-  border-radius: 15px;
+  background-color: #22252d;
+  border-radius: 10px;
   display: flex;
   gap: 1px;
   overflow: hidden;
 }
 
 .mode {
-  padding: 0.8em 0;
+  padding: .9em 0;
   height: 100%;
   flex-grow: 1;
-  background-color: rgb(192, 192, 192);
+  background-color: #292d36;
 }
 
 .main {
@@ -83,7 +89,7 @@ header {
   gap: 1em;
   border-radius: 25px;
   overflow: hidden;
-  background-color: red;
+  background-color: #292d36;
 }
 
 .main div {
@@ -91,7 +97,7 @@ header {
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: #ccc;
+  background-color: #272b33;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.2s all ease;
@@ -100,4 +106,12 @@ header {
 .main div:hover {
   background-color: #000;
   color: #fff;
+}
+
+.function{
+  color: #26e0c1;
+}
+
+.operation{
+  color: #dd6162;
 }
