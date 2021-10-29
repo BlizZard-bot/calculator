@@ -39,8 +39,8 @@ header {
   border-radius: 25px 25px 0 0;
 }
 
-.time{
-  font-size: .95rem;
+.time {
+  font-size: 0.95rem;
   margin-left: 1em;
 }
 
@@ -73,10 +73,26 @@ header {
 }
 
 .mode {
-  padding: .9em 0;
+  padding: 0.9em 0;
   height: 100%;
   flex-grow: 1;
   background-color: #292d36;
+}
+
+.calculation {
+  position: absolute;
+  bottom: 4.5em;
+  right: 1.7em;
+  font-size: 0.95rem;
+  color: rgb(168, 168, 168);
+}
+
+.result {
+  position: absolute;
+  right: 0.6em;
+  bottom: 0.5em;
+  letter-spacing: 1.5px;
+  font-size: 2.25rem;
 }
 
 .main {
@@ -107,11 +123,9 @@ header {
   background-color: #000;
   color: #fff;
 }
-
-.function{
-  color: #26e0c1;
-}
-
-.operation{
+.operation {
   color: #dd6162;
+}
+.function {
+  color: #26e0c1;
 }
