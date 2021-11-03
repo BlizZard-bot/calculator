@@ -13,8 +13,8 @@ body {
   height: 100vh;
   place-items: center;
   font-weight: 700;
-  /* color: #22252d; */
   color: #dcddde;
+  background-color: rgb(231, 231, 232);
 }
 
 img {
@@ -51,7 +51,7 @@ header {
 }
 
 .display {
-  padding: 6.5em;
+  padding: 6em;
   width: 100%;
   background-color: #22252d;
   position: relative;
@@ -81,9 +81,9 @@ header {
 
 .calculation {
   position: absolute;
-  bottom: 4.5em;
-  right: 1.7em;
-  font-size: 0.95rem;
+  bottom: 3.75em;
+  right: 1.25em;
+  font-size: 1.1rem;
   color: rgb(168, 168, 168);
 }
 
@@ -128,4 +128,8 @@ header {
 }
 .function {
   color: #26e0c1;
+}
+
+.equals {
+  color: rgb(255, 153, 0);
 }
