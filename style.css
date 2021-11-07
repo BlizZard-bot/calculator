@@ -6,6 +6,30 @@
   box-sizing: border-box;
 }
 
+.light-theme {
+  --bg-primary: #ccc;
+  --bg-header: #fff;
+  --bg-secondary: #ffffff;
+  --color-main: #282c35;
+  --bg-main: #f8f8f8;
+  --bg-mode: #ececec;
+  --bg-btn: #f1f1f1;
+  --color-sun: #333333;
+  --color-moon: #cecece;
+}
+
+.dark-theme {
+  --bg-primary: rgb(231, 231, 232);
+  --bg-header: #1e2027;
+  --bg-secondary: #22252d;
+  --color-main: #dcddde;
+  --bg-main: #292d36;
+  --bg-mode: #292d36;
+  --bg-btn: #272b33;
+  --color-sun: #5c5d61;
+  --color-moon: #dcddde;
+}
+
 body {
   font-size: 1.1rem;
   font-family: "Roboto";
@@ -13,8 +37,8 @@ body {
   height: 100vh;
   place-items: center;
   font-weight: 700;
-  color: #dcddde;
-  background-color: rgb(231, 231, 232);
+  color: var(--color-main);
+  background-color: var(--bg-primary);
 }
 
 img {
@@ -22,8 +46,8 @@ img {
   display: block;
 }
 .container {
-  background-color: #22252d;
-  width: min(80%, 500px);
+  background-color: var(--bg-secondary);
+  width: min(80%, 400px);
   display: grid;
   place-items: center;
   border-radius: 25px;
@@ -35,7 +59,7 @@ header {
   justify-content: space-between;
   padding: 0.1em;
   align-items: center;
-  background-color: #1e2027;
+  background-color: var(--bg-header);
   border-radius: 25px 25px 0 0;
 }
 
@@ -45,15 +69,19 @@ header {
 }
 
 .icons {
+  display: flex;
+  gap: 0.5em;
+  padding-right: 1em;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.8rem;
   width: 30%;
   height: 20px;
-  border: 1px solid #fff;
 }
 
 .display {
   padding: 6em;
   width: 100%;
-  background-color: #22252d;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -63,9 +91,8 @@ header {
   position: absolute;
   align-self: center;
   top: 1em;
-  width: 30%;
+  width: 40%;
   max-width: 100px;
-  background-color: #22252d;
   border-radius: 10px;
   display: flex;
   gap: 1px;
@@ -73,10 +100,22 @@ header {
 }
 
 .mode {
+  display: grid;
+  place-items: center;
   padding: 0.9em 0;
   height: 100%;
   flex-grow: 1;
-  background-color: #292d36;
+  background-color: var(--bg-mode);
+  cursor: pointer;
+}
+
+.fa-sun {
+  color: var(--color-sun);
+}
+
+.fa-moon {
+  color: var(--color-moon);
+  transform: rotate(-25deg);
 }
 
 .calculation {
@@ -84,7 +123,6 @@ header {
   bottom: 3.75em;
   right: 1.25em;
   font-size: 1.1rem;
-  color: rgb(168, 168, 168);
 }
 
 .result {
@@ -105,7 +143,7 @@ header {
   gap: 1em;
   border-radius: 25px;
   overflow: hidden;
-  background-color: #292d36;
+  background-color: var(--bg-main);
 }
 
 .main div {
@@ -113,7 +151,7 @@ header {
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: #272b33;
+  background-color: var(--bg-btn);
   border-radius: 10px;
   cursor: pointer;
   transition: 0.2s all ease;
