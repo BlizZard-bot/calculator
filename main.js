@@ -1,5 +1,3 @@
-// TODO: Add keyboard support
-
 //Global variables and DOM Elements
 // NOTE: Throughout the code calculationDisplay refers to the top part of the display while resultDisplay refers to its bottom part
 const date = new Date();
@@ -10,10 +8,41 @@ const audio = document.querySelector("audio");
 const calculationDisplay = document.querySelector(".calculation");
 const resultDisplay = document.querySelector(".result");
 const equalsBtn = document.querySelector(".equals");
-const operations = ["÷", "-", "+", "x"];
+const keyOperations = ["/", "-", "+", "*"];
 const decimalBtn = document.querySelector(".decimal-btn");
 const darkThemeBtn = document.querySelector(".dark-toggle");
 const lightThemeBtn = document.querySelector(".light-toggle");
+
+// Integrating keyboard support
+// Add keydown event listener to window
+window.addEventListener("keydown", (e) => {
+  //   If the decimal key is pressed
+  if (e.key === ".") {
+    //   Call addDecimal()
+    addDecimal();
+    //   If the backspace key is pressed
+  } else if (e.key === "Backspace") {
+    //   Call removeLast
+    removeLast();
+  } else if (e.key === "Escape") {
+    removeAll();
+  }
+  //   If keyOperations contains e.key (i.e. /,*,+,-)
+  else if (keyOperations.includes(e.key)) {
+    //   Call setOperation on changeIntoOperation with e.key as an argument
+    setOperation(changeIntoOperation(e.key));
+    //   Reset resultDisplay's textContent
+    resultDisplay.textContent = "";
+    // If the enter key is pressed
+  } else if (e.key === "Enter") {
+    //   Call displayResult()
+    displayResult();
+    //   If Number(e.key) isn't NaN(i.e. e.key is a number)
+  } else if (!isNaN(Number(e.key))) {
+    //   Add e.key to resultDisplay's value
+    resultDisplay.textContent += e.key;
+  }
+});
 
 // Adding click event listener to darkThemeBtn(moon icon)
 darkThemeBtn.addEventListener("click", () => {
@@ -86,24 +115,27 @@ main.addEventListener("click", (e) => {
 
 // Fetching clearAll from the DOM
 const clearAll = document.querySelector(".clear-all");
-// Adding onclick event listener to clearAll and setting the value of both displays to blank
-clearAll.addEventListener("click", () => {
+// Adding onclick event listener to clearAll which calls removeAll()
+clearAll.addEventListener("click", removeAll);
+
+function removeAll() {
+  //  setting the value of both displays to blank
   calculationDisplay.textContent = "";
   resultDisplay.textContent = "";
-});
-
+}
 // Fetching clearLast from the DOM
 const clearLast = document.querySelector(".clear-last");
-// Adding onclick event listener to clearLast
-clearLast.addEventListener("click", () => {
+// Adding onclick event listener to clearLast which calls removeLast()
+clearLast.addEventListener("click", removeLast);
+
+function removeLast() {
   // Storing the value of resultDisplay in a variable
   let value = resultDisplay.textContent;
   // Removing the last character from value
   value = value.slice(0, -1);
   // Reassigning value to resultDisplay's value
   resultDisplay.textContent = value;
-});
-
+}
 // Function to set resultDisplay's value to the answer of the expression
 function displayResult() {
   // Adding resultDisplay's value to calculationDisplay
@@ -133,7 +165,7 @@ function displayResult() {
         // Rounding resultDisplay's value to 0, and then converting it to Number so that for non-decimal numbers, the decimals don't show
         resultDisplay.textContent = +parseFloat(
           resultDisplay.textContent
-        ).toFixed(4);
+        ).toFixed(3);
       }
       // Setting calculationDisplay's value to an appropriate one
       calculationDisplay.textContent = `${firstNumber} ${operator} ${secondNumber} =`;
@@ -205,3 +237,13 @@ function setOperation(operation) {
   // Setting calulationDisplay to firstNumber + the operator
   calculationDisplay.textContent = `${firstNumber} ${operator}`;
 }
+
+const changeIntoOperation = (a) => {
+  if (a === "/") {
+    return "÷";
+  } else if (a === "*") {
+    return "x";
+  } else {
+    return a;
+  }
+};
