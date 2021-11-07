@@ -14,8 +14,9 @@ Nevertheless I had a lot of fun creating this and learned quite a lot of things 
 - How to add a theme changer
 - How to display real time using Date()
 - How to use FontAwesome icons
+- How to handle keyboard input
 - How to manipulate strings to get the required value (like removing whitespace, getting the index of an item etc.)
 
 ### Credit
 
-The design was taken from [Lucia Scott's Calculator design on Dribbble](https://dribbble.com/shots/14709020-Calculator/attachments/6408579?mode=media)
+The design was inspired by [Lucia Scott's Calculator design on Dribbble](https://dribbble.com/shots/14709020-Calculator/attachments/6408579?mode=media)
