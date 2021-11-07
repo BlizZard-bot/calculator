@@ -12,6 +12,22 @@ const resultDisplay = document.querySelector(".result");
 const equalsBtn = document.querySelector(".equals");
 const operations = ["÷", "-", "+", "x"];
 const decimalBtn = document.querySelector(".decimal-btn");
+const darkThemeBtn = document.querySelector(".dark-toggle");
+const lightThemeBtn = document.querySelector(".light-toggle");
+
+// Adding click event listener to darkThemeBtn(moon icon)
+darkThemeBtn.addEventListener("click", () => {
+  // Removing light-theme class and adding dark-theme class to body
+  document.body.classList.add("dark-theme");
+  document.body.classList.remove("light-theme");
+});
+
+// Adding click event listener to lightThemeBtn(sun icon)
+lightThemeBtn.addEventListener("click", () => {
+  // Removing dark-theme class and adding light-theme class to body
+  document.body.classList.add("light-theme");
+  document.body.classList.remove("dark-theme");
+});
 
 // Displaying time on the calculator
 time.textContent = getTime();
